@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
  
 
@@ -23,15 +23,36 @@ const Header = () => {
       }, [theme]);
       const NavItem = (
         <>
-          <div className="flex justify-center  gap-8">
+          <div className=" flex flex-col md:flex-row justify-center  md:gap-8 gap-8 ">
             <li>
-              <NavLink>AddTourist</NavLink>
+              <NavLink
+                className={(isactive) =>
+                  isactive ? "text-primary font-bold" : "font-bold"
+                }
+                to="/addtourist"
+              >
+                AddTourist
+              </NavLink>
             </li>
             <li>
-              <NavLink>AllTourist</NavLink>
+              <NavLink
+                className={(isactive) =>
+                  isactive ? "text-primary font-bold" : "font-bold"
+                }
+                to="/alltourist"
+              >
+                AllTourist
+              </NavLink>
             </li>
             <li>
-              <NavLink>Home</NavLink>
+              <NavLink
+                className={(isactive) =>
+                  isactive ? "text-primary font-bold" : "font-bold"
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
           </div>
         </>
@@ -39,7 +60,7 @@ const Header = () => {
     
     return (
       <nav>
-        <div className="navbar sticky bg-green-100">
+        <div className="navbar shadow-lg px-4    z-10   bg-green-100">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -64,7 +85,7 @@ const Header = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="   menu menu-sm dropdown-content  bg-green-200  "
+                className=" menu menu-sm dropdown-content   bg-green-200  "
               >
                 <div className="flex flex-row">{NavItem}</div>
                 <label className="flex md:hidden cursor-pointer gap-2 px-4">
@@ -104,7 +125,9 @@ const Header = () => {
                 </label>
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl">Ahmad</a>
+            <a className="text-4xl bg-300%   font-bold bg-gradient-to-r from-red-700 via-red-200 to-green-400 text-transparent bg-clip-text animate-gradient">
+              Ahmad
+            </a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
@@ -118,14 +141,14 @@ const Header = () => {
                 className="relative rounded px-5 py-2.5 overflow-hidden group bg-green-500   hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300"
               >
                 <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-                <span className="relative">SignUP</span>
+                <Link to='/ragister'><span className="relative">Ragister</span></Link>
               </a>
               <a
                 href="#_"
                 className="relative rounded px-5 py-2.5 overflow-hidden group bg-green-500   hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300"
               >
                 <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-                <span className="relative">Login</span>
+                <Link to='/login'><span className="relative">Login</span></Link>
               </a>
             </div>
 
